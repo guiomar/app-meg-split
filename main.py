@@ -27,7 +27,7 @@ fname = str(config['fif'])
 t1min = str(config['t1min'])  # in seconds
 t1max = str(config['t1max']) 
 t2min = str(config['t2min']) 
-#t2max = str(config['t2max']) 
+t2max = str(config['t2max']) 
 
 
 raw = mne.io.read_raw_fif(fname)
@@ -35,4 +35,4 @@ raw = mne.io.read_raw_fif(fname)
 # save the first seconds of MEG data in FIF file
 raw.save(os.path.join('out_dir1','meg.fif'), tmin=t1min, tmax=t1max)
 # save the rest in a second FIF file
-raw.save(os.path.join('out_dir2','meg.fif'), tmin=t2min)
+raw.save(os.path.join('out_dir2','meg.fif'), tmin=t2min, tmax=t2max)
