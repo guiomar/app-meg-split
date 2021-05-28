@@ -12,8 +12,7 @@
 #import mne-study-template
 import os
 import json
-from mne import fiff
-
+import mne
 
 # Current path
 __location__ = os.path.realpath(
@@ -31,7 +30,7 @@ t2min = str(config['t2min'])
 #t2max = str(config['t2max']) 
 
 
-raw = fiff.Raw(fname)
+raw = mne.io.read_raw_fif(fname)
 
 # save the first seconds of MEG data in FIF file
 raw.save(os.path.join('out_dir1','meg.fif'), tmin=t1min, tmax=t1max)
