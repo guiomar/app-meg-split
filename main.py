@@ -23,11 +23,11 @@ with open(__location__+'/config.json') as config_json:
     config = json.load(config_json)
 
 
-fname = str(config['fif']) 
-t1min = str(config['t1min'])  # in seconds
-t1max = str(config['t1max']) 
-t2min = str(config['t2min']) 
-t2max = str(config['t2max']) 
+fname = config['fif']
+t1min = config['t1min'] # in seconds
+t1max = config['t1max']
+t2min = config['t2min']
+t2max = config['t2max']
 
 
 raw = mne.io.read_raw_fif(fname)
