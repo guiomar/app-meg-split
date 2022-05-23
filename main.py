@@ -23,14 +23,16 @@ with open(__location__+'/config.json') as config_json:
     config = json.load(config_json)
 
 
-fname = config['fif']
+fname = config['mne']
 t1min = config['t1min'] # in seconds
 t1max = config['t1max']
 t2min = config['t2min']
 t2max = config['t2max']
 
+# COPY THE METADATA CHANNELS.TSV, COORDSYSTEM, ETC ==============================
 
-raw = mne.io.read_raw_fif(fname)
+
+raw = mne.io.read_raw(fname)
 
 # save the first seconds of MEG data in FIF file
 raw.save(os.path.join('out_dir1','meg.fif'), tmin=t1min, tmax=t1max, overwrite=True)
